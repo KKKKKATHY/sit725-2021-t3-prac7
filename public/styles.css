@@ -13,12 +13,12 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: #B783C3;
+  background-color: #E6E6FA;
 
 }
 
 .page-footer{
-  background-color: #9E65A9;
+  background-color: #B0E0E6;
 }
 main {
   flex: 1 0 auto;

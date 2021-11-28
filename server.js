@@ -19,6 +19,37 @@ app.get("/test", function (request, response) {
 });
 
 
+let id = 1;
+
+const projects = [
+  {
+    id: id,
+    title: "project" + id,
+    info:`This is my work ${id} I am crated`,
+    img: null,
+  },
+  {
+    id: ++id,
+    title: "project" + id,
+    info:`TThis is my work ${id} I am crated`,
+    img: null,
+  },
+  {
+    id: ++id,
+    title: "project" + id,
+    info:`This is my work ${id} I am crating here`,
+    img: null,
+  },
+
+]
+
+
+
+app.get("/projects", function (request, response) {
+  response.json(projects);
+});
+
+
 //socket test
 io.on('connection', (socket) => {
   console.log('a user connected');
@@ -37,4 +68,4 @@ http.listen(port,()=>{
 });
 
 //this is only needed for Cloud foundry 
-require("cf-deployment-tracker-client").track();
+//require("cf-deployment-tracker-client").track();
