@@ -4,7 +4,7 @@ let app = express();
 //var app = require('express')();
 let http = require('http').createServer(app);
 let io = require('socket.io')(http);
-
+const bodyParser = require('body-parser');
 
 
 
@@ -12,6 +12,7 @@ let io = require('socket.io')(http);
 var port = process.env.PORT || 8080;
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
 
 app.get("/test", function (request, response) {
   var user_name = request.query.user_name;

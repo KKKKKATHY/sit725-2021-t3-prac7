@@ -2,6 +2,7 @@
   "name": "project",
   "version": "0.0.01",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cf-deployment-tracker-client": "*",
     "commander": "^2.6.0",
     "express": "^4.14.1",
@@ -11,7 +12,7 @@
   },
   "main": "server.js",
   "scripts": {
-    "start":"node server.js",
+    "start": "node server.js",
     "start-dev": "nodemon server.js"
   },
   "repository": {
