@@ -6,11 +6,3 @@ const getProjects = () => {
     })
 }
 
-$(document).ready(function(){
-    $('.materialboxed').materialbox();
-    $('#formSubmit').click(()=>{
-        submitFrom();
-    })
-    getProjects();
-    $('.modal').modal();
-});

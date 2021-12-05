@@ -29,6 +29,14 @@ function createProjectCard(project){
 `;
 }
 
+$(document).ready(function(){
+  $('.materialboxed').materialbox();
+  $('#formSubmit').click(()=>{
+      submitFrom();
+  })
+  getProjects();
+  $('.modal').modal();
+});
 
 $(document).ready(function(){
   console.log('Ready')
