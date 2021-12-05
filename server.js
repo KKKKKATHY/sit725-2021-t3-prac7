@@ -1,72 +1,34 @@
-let express = require("express");
-let app = express();
-
-//var app = require('express')();
-let http = require('http').createServer(app);
-let io = require('socket.io')(http);
-const bodyParser = require('body-parser');
-
-
-
-
-var port = process.env.PORT || 8080;
+var express = require("express");
+var app = express();
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-app.get("/test", function (request, response) {
-  var user_name = request.query.user_name;
-  response.end("Hello " + user_name + "!");
-});
-
-
-let id = 1;
-
-const projects = [
+const cardlist =[
   {
-    id: id,
-    title: "project" + id,
-    info:`This is my work ${id} I am crated`,
-    img: null,
+  title: "Kitten 2",
+  image:"images/HP.jpg",
+  link:"About kitten 2",
+  description:"Demo description about kitten 2"
   },
   {
-    id: ++id,
-    title: "project" + id,
-    info:`TThis is my work ${id} I am crated`,
-    img: null,
-  },
-  {
-    id: ++id,
-    title: "project" + id,
-    info:`This is my work ${id} I am crating here`,
-    img: null,
-  },
-
+  title:"kitten 3",
+  image:"image/HP.jpg",
+  link:"About kitten",
+  description:"Demo description about kitten"
+  }
 ]
 
+app.get('/api/projects',(req,res) => {
+  res.json({status: 200, data:cardlist, message:"Success"})
+})
 
 
-app.get("/projects", function (request, response) {
-  response.json(projects);
+var port = process.env.PORT || 3000;
+
+app.listen(port,()=>{
+  console.log("App listening to: "+port);
 });
 
 
-//socket test
-io.on('connection', (socket) => {
-  console.log('a user connected');
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  });
-  setInterval(()=>{
-    socket.emit('number', parseInt(Math.random()*10));
-  }, 1000);
-
-});
-
-
-http.listen(port,()=>{
-  console.log("Listening on port ", port);
-});
-
-//this is only needed for Cloud foundry 
-//require("cf-deployment-tracker-client").track();
