@@ -29,28 +29,42 @@ function createProjectCard(project){
 `;
 }
 
-$(document).ready(function(){
-  $('.materialboxed').materialbox();
-  $('#formSubmit').click(()=>{
-      submitFrom();
-  })
-  getProjects();
-  $('.modal').modal();
-});
+
 
 $(document).ready(function(){
-  console.log('Ready')
+
+  $('.sidenav').sidenav();
   
-  $("#main-nav").load('component/navbar.html',() => {
-    $('.sidenav').sidenav();
-  })
+  $('.modal').modal();
+
+  $('#save-project').onClick((e)=>{
+    const data = {
+      projectID:$("#project-id").val(),
+      title:$("#project-title").val(),
+      info:$("#project-description").val(),
+      img:null
+    };
+   
+    var settings = {
+      "url":"localhost:8080/projects",
+      "method":"POST",
+      "timeout": 0,
+      "headers":{
+        "Content-Type":"application/json"
+      },
+      "data": JSON.stringify(data),
+    };
+    $.ajax(settings).done(function(response){
+      console.log(response);
+    });
+  });
 
   //test get call
   $.get('/projects',(result)=>{
-    for(let project of result){
-      $('#projects').append(createProjectCard(project)); 
+    for(let p of result){
+      $('#projects-list').append(createProjectCard(p)); 
     }
-      
+      console.log(result)
   })
 
 })
