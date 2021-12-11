@@ -11,7 +11,7 @@ socket.on('number', (msg) => {
 function createProjectCard(project){
   return `    
   
-    <div class="col s6 m4 " id=""project-id-${project.id}">
+    <div class="col s6 m4 " id=""project-id-${project.projectId}">
       <div class="card">
         <div class="card-image">
           <img src="${project.img ? project.img :'assets/HP.jpg'}">
@@ -21,7 +21,8 @@ function createProjectCard(project){
           <p>${project.info}</p>
         </div>
         <div class="card-action">
-          <a href="project.html?pid=${project.id}">open project</a>
+          <a href="project.html?pid=${project.project.id}">open project</a>
+          <a class = "btn waves-effect waves-light" Onclick = "deleteProject(${project.project.id})"><i class="material-icons">delete</i></a>
         </div>
       </div>
     </div>
@@ -29,6 +30,19 @@ function createProjectCard(project){
 `;
 }
 
+function deleteProject(projectid){
+  var settings ={
+    "url":`/api/projects/${projectid}`,
+      "method":"DELETE",
+      "timeout": 0,
+  };
+
+  $.ajax(settings).done(function(response){
+    alert(`#project-id-${projectId}`);
+    $(`#project-id-${projectId}`).remove();
+  });
+}
+ 
 
 
 $(document).ready(function(){
@@ -60,7 +74,7 @@ $(document).ready(function(){
   });
 
   //test get call
-  $.get('/projects',(result)=>{
+  $.get('/api/projects',(result)=>{
     for(let p of result){
       $('#projects-list').append(createProjectCard(p)); 
     }
