@@ -1,7 +1,9 @@
 let express = require("express");
 let router = express.Router();
 
-let controller = require("../controller/projectController");
+
+
+const projectService = require("../services/projects");
 
 
 router.get('/' , (req,res) => {

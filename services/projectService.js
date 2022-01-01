@@ -10,7 +10,7 @@ setTimeout(()=>{
 const AllProject = (res) => {
     projectCollection.find().toArray((err, result) => {
         if(err) throw err;
-        res.send(result);
+        res.send(result); 
     });
  }
 

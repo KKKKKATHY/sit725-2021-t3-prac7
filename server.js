@@ -21,6 +21,15 @@ app.use(express.json());
 app.use('/api/projects', projectRoute);
 app.use('/api/students', studentRoute);
 
+app.get("/addNumber/:n1/:2", function(request, response){
+  let n1 = parseInt(request.params.n1);
+  let n2 = parseInt(request.params.n2);
+  let result = n1 + n2 || null;
+  if (result == null){
+      response.status(400).json({sendStatus:400, err:'Both input should be a number'})
+  }
+  response.json({sendStatus:200, result: result});
+});
 
 //app.get("/test", function (request, response) {
   //var user_name = request.query.user_name;
