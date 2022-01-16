@@ -9,6 +9,7 @@ let socket = io();
 
 socket.on('number', (msg) => {
     console.log('Random number: ' + msg);
+    $('socketOut').html(msg)
 })
 
 console.log('test')
