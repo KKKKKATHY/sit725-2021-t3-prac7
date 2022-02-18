@@ -15,6 +15,6 @@ MAKE AN APPOINT is for the user to make an appointment for the store. User need 
 
 Manage all server API by the MVC folder (controllers, routes and services).
 
-All the data is save on the database.
+All the data is save on the MongoDB (cats image, details and users booking details).
 The dbConnection.js is for the database connection.
 
