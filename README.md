@@ -1,7 +1,7 @@
 Cat adoption website(Kathy's project) by ZHIGUI (Kathy) ZHANG:
 ================================================================================
 
-This site is about adopting stray cats. The website will have photos and ages of stray cats. Users can make an appointment to come to the store to see cats and adopt stray cats through the website.
+This website is about adopting stray cats. The website will have photos and ages of stray cats. Users can make an appointment to come to the store to see cats and adopt stray cats through the website.
 
 The navbar have four buttons on the home page. There are Gallery one, Gallery two, Book List and MAKE AN APPOINT.
 
