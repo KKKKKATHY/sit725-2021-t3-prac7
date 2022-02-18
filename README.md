@@ -13,9 +13,7 @@ The Book List is show every customer's booking details, like customer's name, em
 
 MAKE AN APPOINT is for the user to make an appointment for the store. User need to provide their name, phone number and email for make appoingment.
 
-The User only can make appoint on the Gallery One page (home page).
-
-The MVC folder (controllers, routes and services) manage all the server api.
+Manage all server API by the MVC folder (controllers, routes and services).
 
 All the data is save on the database.
 The dbConnection.js is for the database connection.
